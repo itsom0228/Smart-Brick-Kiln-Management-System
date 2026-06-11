@@ -1,0 +1,32 @@
+# Java Target / Build files
+target/
+back-end/target/
+**/target/
+back-end/bin/
+**/bin/
+
+# Maven Wrapper & binaries
+back-end/maven/
+**/maven/
+.mvn/
+*.jar
+*.war
+
+# IDE files
+.idea/
+*.iml
+*.iws
+.project
+.classpath
+.settings/
+.metadata/
+.recommenders/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/

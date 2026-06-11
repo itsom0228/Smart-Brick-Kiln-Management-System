@@ -1,0 +1,20 @@
+# Robots.txt for Dipak Sarpane Brick Industries
+User-agent: *
+Allow: /
+Allow: /index
+Allow: /about
+Allow: /products
+Allow: /gallery
+Allow: /calculator
+Allow: /contact
+Allow: /order/now
+Allow: /order/track
+Allow: /quotation/request
+
+# Exclude Admin Paths from Search Indexing
+Disallow: /admin/
+Disallow: /admin/**
+Disallow: /order/success/
+Disallow: /order/success/**
+
+Sitemap: http://localhost:8080/sitemap.xml
