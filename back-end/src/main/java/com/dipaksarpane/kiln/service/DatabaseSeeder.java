@@ -44,20 +44,52 @@ public class DatabaseSeeder implements CommandLineRunner {
     @Override
     @Transactional
     public void run(String... args) throws Exception {
-        // 0. Drop unique constraint on products table name column if exists
+        // 0. Drop unique constraint/index on products table name column if exists dynamically (MySQL / PostgreSQL)
         try {
-            @SuppressWarnings("unchecked")
-            java.util.List<String> indexNames = (java.util.List<String>) entityManager.createNativeQuery(
-                "SELECT INDEX_NAME FROM information_schema.statistics " +
-                "WHERE table_schema = DATABASE() " +
-                "AND table_name = 'products' " +
-                "AND column_name = 'name' " +
-                "AND non_unique = 0"
-            ).getResultList();
-            for (String indexName : indexNames) {
-                if (!"PRIMARY".equalsIgnoreCase(indexName)) {
-                    entityManager.createNativeQuery("ALTER TABLE products DROP INDEX " + indexName).executeUpdate();
-                    System.out.println(">>> Database Seeder: Unique index " + indexName + " on products(name) dropped successfully.");
+            java.sql.Connection conn = entityManager.unwrap(java.sql.Connection.class);
+            String dbProductName = conn.getMetaData().getDatabaseProductName().toLowerCase();
+            
+            if (dbProductName.contains("mysql")) {
+                @SuppressWarnings("unchecked")
+                java.util.List<String> indexNames = (java.util.List<String>) entityManager.createNativeQuery(
+                    "SELECT INDEX_NAME FROM information_schema.statistics " +
+                    "WHERE table_schema = DATABASE() " +
+                    "AND table_name = 'products' " +
+                    "AND column_name = 'name' " +
+                    "AND non_unique = 0"
+                ).getResultList();
+                for (String indexName : indexNames) {
+                    if (!"PRIMARY".equalsIgnoreCase(indexName)) {
+                        entityManager.createNativeQuery("ALTER TABLE products DROP INDEX " + indexName).executeUpdate();
+                        System.out.println(">>> Database Seeder: Unique index " + indexName + " on products(name) dropped successfully.");
+                    }
+                }
+            } else if (dbProductName.contains("postgresql")) {
+                // Find and drop constraints
+                @SuppressWarnings("unchecked")
+                java.util.List<String> constraintNames = (java.util.List<String>) entityManager.createNativeQuery(
+                    "SELECT tc.constraint_name " +
+                    "FROM information_schema.table_constraints AS tc " +
+                    "JOIN information_schema.constraint_column_usage AS ccu ON ccu.constraint_name = tc.constraint_name " +
+                    "WHERE tc.constraint_type = 'UNIQUE' " +
+                    "AND tc.table_name = 'products' " +
+                    "AND ccu.column_name = 'name'"
+                ).getResultList();
+                for (String constraintName : constraintNames) {
+                    entityManager.createNativeQuery("ALTER TABLE products DROP CONSTRAINT " + constraintName).executeUpdate();
+                    System.out.println(">>> Database Seeder: Unique constraint " + constraintName + " on products(name) dropped.");
+                }
+                
+                // Find and drop indexes
+                @SuppressWarnings("unchecked")
+                java.util.List<String> indexNames = (java.util.List<String>) entityManager.createNativeQuery(
+                    "SELECT indexname FROM pg_indexes " +
+                    "WHERE tablename = 'products' " +
+                    "AND indexdef LIKE '%(name)%'"
+                ).getResultList();
+                for (String indexName : indexNames) {
+                    entityManager.createNativeQuery("DROP INDEX " + indexName).executeUpdate();
+                    System.out.println(">>> Database Seeder: Unique index " + indexName + " on products(name) dropped.");
                 }
             }
         } catch (Exception e) {
