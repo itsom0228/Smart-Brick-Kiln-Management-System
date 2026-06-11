@@ -13,6 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import javax.sql.DataSource;
 import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -25,6 +26,7 @@ public class DatabaseSeeder implements CommandLineRunner {
     private final ReviewRepository reviewRepository;
     private final SystemSettingRepository systemSettingRepository;
     private final PasswordEncoder passwordEncoder;
+    private final DataSource dataSource;
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -33,20 +35,21 @@ public class DatabaseSeeder implements CommandLineRunner {
                           ProductRepository productRepository, 
                           ReviewRepository reviewRepository,
                           SystemSettingRepository systemSettingRepository,
-                          PasswordEncoder passwordEncoder) {
+                          PasswordEncoder passwordEncoder,
+                          DataSource dataSource) {
         this.adminRepository = adminRepository;
         this.productRepository = productRepository;
         this.reviewRepository = reviewRepository;
         this.systemSettingRepository = systemSettingRepository;
         this.passwordEncoder = passwordEncoder;
+        this.dataSource = dataSource;
     }
 
     @Override
     @Transactional
     public void run(String... args) throws Exception {
         // 0. Drop unique constraint/index on products table name column if exists dynamically (MySQL / PostgreSQL)
-        try {
-            java.sql.Connection conn = entityManager.unwrap(java.sql.Connection.class);
+        try (java.sql.Connection conn = dataSource.getConnection()) {
             String dbProductName = conn.getMetaData().getDatabaseProductName().toLowerCase();
             
             if (dbProductName.contains("mysql")) {
