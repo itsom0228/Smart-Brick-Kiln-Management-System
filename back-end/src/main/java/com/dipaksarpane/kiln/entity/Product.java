@@ -33,8 +33,7 @@ public class Product {
     @Column(nullable = false)
     private Integer lowStockThreshold;
 
-    @Lob
-    @Column(columnDefinition = "LONGTEXT")
+    @Column(length = 16777215)
     private String imageUrl;
 
     // Constructors

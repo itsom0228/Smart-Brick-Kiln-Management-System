@@ -14,8 +14,7 @@ public class GalleryImage {
     @Column(nullable = false)
     private String title;
 
-    @Lob
-    @Column(columnDefinition = "LONGTEXT", nullable = false)
+    @Column(length = 16777215, nullable = false)
     private String base64Data;
 
     @Column(nullable = false)
