@@ -43,6 +43,19 @@ public class WebConfig implements WebMvcConfigurer {
                 if (webappDir.exists()) {
                     tomcat.setDocumentRoot(webappDir);
                 }
+                
+                // Optimize Tomcat context for Docker and slow-disk container environments
+                tomcat.addContextCustomizers(context -> {
+                    context.setReloadable(false);
+                    // Use ExtractingRoot to extract JSPs and resources out of the WAR package
+                    context.setResources(new org.apache.catalina.webresources.ExtractingRoot());
+                    
+                    // Allow caching of scanned web resources to speed up loads
+                    if (context.getResources() != null) {
+                        context.getResources().setCachingAllowed(true);
+                        context.getResources().setCacheMaxSize(102400); // 100MB cache
+                    }
+                });
             }
         };
     }
