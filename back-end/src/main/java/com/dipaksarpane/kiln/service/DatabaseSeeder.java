@@ -47,6 +47,20 @@ public class DatabaseSeeder implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        // Run database seeding in a background thread to prevent blocking main thread startup
+        new Thread(() -> {
+            try {
+                System.out.println(">>> Database Seeder: Starting background seeding...");
+                seedData();
+                System.out.println(">>> Database Seeder: Background seeding completed successfully.");
+            } catch (Exception e) {
+                System.err.println(">>> Database Seeder: Background seeding failed!");
+                e.printStackTrace();
+            }
+        }, "database-seeder-thread").start();
+    }
+
+    private void seedData() throws Exception {
         // 1. Seed Admin User
         if (adminRepository.count() == 0) {
             Admin admin = new Admin();
