@@ -28,6 +28,12 @@
     
     <!-- Custom Application CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/custom.css">
+    
+    <script>
+        // Apply theme immediately on load to prevent light flash
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
 </head>
 <body>
 
@@ -70,6 +76,11 @@
                         <li><a class="dropdown-menu-item dropdown-item" href="?lang=mr">मराठी (Marathi)</a></li>
                         <li><a class="dropdown-menu-item dropdown-item" href="?lang=hi">हिन्दी (Hindi)</a></li>
                     </ul>
+                </li>
+                <li class="nav-item ms-lg-2 ms-0 my-lg-0 my-2">
+                    <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
                 </li>
                 <li class="nav-item ms-lg-3">
                     <a class="btn btn-outline-custom btn-sm py-2 px-3 text-white border-white" href="${pageContext.request.contextPath}/order/track">

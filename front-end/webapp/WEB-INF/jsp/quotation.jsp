@@ -24,7 +24,7 @@
                     </div>
                 </c:if>
 
-                <div class="card border-0 shadow-sm p-5">
+                <div class="glass-card p-4 p-md-5">
                     <form id="quotation-form" action="${pageContext.request.contextPath}/quotation/submit" method="post">
                         <!-- Include CSRF Token -->
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -62,14 +62,14 @@
                         </div>
 
                         <!-- Live Estimate panel -->
-                        <div class="bg-light p-4 rounded-3 my-4 border border-secondary-subtle">
+                        <div class="glass-card p-4 my-4" style="background: rgba(255, 255, 255, 0.3) !important;">
                             <h5 class="text-secondary-custom mb-3 font-weight-bold">Quotation Estimate Preview</h5>
                             <div class="row g-2 text-muted small">
                                 <div class="col-sm-6">Product Base Cost: <strong class="text-secondary-custom">INR <span id="calc-res-product-cost">0.00</span></strong></div>
                                 <div class="col-sm-6">GST (${not empty settings.GST_RATE ? settings.GST_RATE : 12}%): <strong class="text-secondary-custom">INR <span id="calc-res-gst">0.00</span></strong></div>
                                 <div class="col-sm-6">Estimated Transport Cost: <strong class="text-secondary-custom">INR <span id="calc-res-transport">0.00</span></strong></div>
                                 <div class="col-sm-6 mt-3 border-top pt-2">
-                                    <h5 class="mb-0 text-secondary-custom">Est. Total: <span class="text-primary-custom font-weight-bold">INR <span id="calc-res-total">0.00</span></span></h5>
+                                    <h5 class="mb-0 text-secondary-custom font-weight-bold">Est. Total: <span class="text-primary-custom font-weight-bold">INR <span id="calc-res-total">0.00</span></span></h5>
                                 </div>
                             </div>
                         </div>

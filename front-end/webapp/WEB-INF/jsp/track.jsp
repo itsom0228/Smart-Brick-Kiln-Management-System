@@ -18,7 +18,7 @@
             
             <!-- Left Side: Track Form -->
             <div class="col-lg-5 mb-4" data-aos="fade-right">
-                <div class="card border-0 shadow-sm p-4">
+                <div class="glass-card p-4">
                     <h4 class="text-secondary-custom mb-3"><i class="fa-solid fa-route me-2 text-primary-custom"></i>Track Delivery</h4>
                     
                     <form id="track-form" action="${pageContext.request.contextPath}/order/track/search" method="post">
@@ -41,7 +41,7 @@
             <!-- Right Side: Tracking results -->
             <div class="col-lg-7" id="tracking-results-column" data-aos="fade-left">
                 <c:if test="${found == true}">
-                    <div class="card border-0 shadow-sm p-4">
+                    <div class="glass-card p-4">
                         <h4 class="text-secondary-custom mb-4 border-bottom pb-2">Tracking Results for: <span class="text-primary-custom">${order.orderNumber}</span></h4>
                         
                         <!-- Customer details details -->
@@ -70,7 +70,7 @@
                                 <span class="text-muted small font-weight-bold"><spring:message code="track.statusLabel"/></span>
                                 <span class="badge bg-primary-custom">${order.currentStatus}</span>
                             </div>
-                            <div class="progress" style="height: 12px;">
+                            <div class="progress" style="height: 12px; border-radius: 6px; background-color: rgba(0,0,0,0.05);">
                                 <div class="progress-bar bg-primary-custom progress-bar-striped progress-bar-animated" role="progressbar" style="width: ${order.statusProgress}%" aria-valuenow="${order.statusProgress}" aria-valuemin="0" aria-valuemax="100">${order.statusProgress}%</div>
                             </div>
                         </div>
@@ -165,8 +165,8 @@
                 </c:if>
 
                 <c:if test="${empty found && empty error}">
-                    <div class="card border-0 shadow-sm p-5 text-center text-muted">
-                        <i class="fa-solid fa-route fa-4x text-light mb-3"></i>
+                    <div class="glass-card p-5 text-center text-muted">
+                        <i class="fa-solid fa-route fa-4x text-light mb-3" style="opacity: 0.5;"></i>
                         <h5>Enter Details to Track Order</h5>
                         <p class="small mb-0">Your unique order ID is printed on the order placement page and success landing page.</p>
                     </div>

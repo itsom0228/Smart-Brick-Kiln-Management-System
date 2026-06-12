@@ -13,19 +13,19 @@
 </section>
 
 <!-- Calculator Interface -->
-<section class="py-5 bg-light">
+<section class="py-5">
     <div class="container">
         <div class="row g-5 align-items-stretch">
             <!-- Col 1: Calculator Input Form -->
             <div class="col-lg-6" data-aos="fade-right">
-                <div class="card border-0 shadow-lg p-5 bg-secondary-custom text-white h-100 d-flex flex-column justify-content-between rounded-4">
+                <div class="glass-card p-4 p-md-5 h-100 d-flex flex-column justify-content-between">
                     <div>
-                        <h3 class="mb-4 text-accent-custom border-bottom pb-2"><i class="fa-solid fa-calculator me-2"></i>Pricing Estimator</h3>
+                        <h3 class="mb-4 text-primary-custom border-bottom pb-2"><i class="fa-solid fa-calculator me-2"></i>Pricing Estimator</h3>
                         
                         <form id="standalone-calc-form" onsubmit="return false;">
                             <div class="mb-3">
-                                <label class="form-label font-weight-bold small text-white-50">Select Product</label>
-                                <select id="std-calc-product" class="form-select bg-dark text-white border-secondary py-2" required>
+                                <label class="form-label font-weight-bold small">Select Product</label>
+                                <select id="std-calc-product" class="form-select py-2" required>
                                     <option value="" disabled selected>-- Choose Brick/Block --</option>
                                     <c:forEach var="p" items="${products}">
                                         <option value="${p.id}" data-price="${p.price}">${p.name} (Rs ${p.price}/unit)</option>
@@ -34,14 +34,14 @@
                             </div>
                             
                             <div class="mb-3">
-                                <label class="form-label font-weight-bold small text-white-50">Quantity (Units)</label>
-                                <input type="number" id="std-calc-quantity" min="100" step="50" placeholder="e.g. 5000" class="form-control bg-dark text-white border-secondary py-2" required>
-                                <div class="form-text text-white-50 small">Minimum recommended order: 100 units.</div>
+                                <label class="form-label font-weight-bold small">Quantity (Units)</label>
+                                <input type="number" id="std-calc-quantity" min="100" step="50" placeholder="e.g. 5000" class="form-control py-2" required>
+                                <div class="form-text text-muted small">Minimum recommended order: 100 units.</div>
                             </div>
 
                             <div class="mb-4">
-                                <label class="form-label font-weight-bold small text-white-50">Delivery Destination / Distance</label>
-                                <select id="std-calc-delivery" class="form-select bg-dark text-white border-secondary py-2" required>
+                                <label class="form-label font-weight-bold small">Delivery Destination / Distance</label>
+                                <select id="std-calc-delivery" class="form-select py-2" required>
                                     <option value="${settings.TRANSPORT_LOCAL != null ? settings.TRANSPORT_LOCAL : 0}" selected>Local Hingangaon Village (Rs. ${settings.TRANSPORT_LOCAL != null ? settings.TRANSPORT_LOCAL : 0})</option>
                                     <option value="${settings.TRANSPORT_PARANDA != null ? settings.TRANSPORT_PARANDA : 1500}">Paranda Town (Flat Rs ${settings.TRANSPORT_PARANDA != null ? settings.TRANSPORT_PARANDA : 1500})</option>
                                     <option value="${settings.TRANSPORT_DHARASHIV != null ? settings.TRANSPORT_DHARASHIV : 3500}">Dharashiv / Osmanabad District (Flat Rs ${settings.TRANSPORT_DHARASHIV != null ? settings.TRANSPORT_DHARASHIV : 3500})</option>
@@ -57,7 +57,7 @@
 
             <!-- Col 2: Calculation Results Output -->
             <div class="col-lg-6" data-aos="fade-left">
-                <div class="card border-0 shadow-lg p-5 bg-white h-100 d-flex flex-column justify-content-between rounded-4">
+                <div class="glass-card p-4 p-md-5 h-100 d-flex flex-column justify-content-between">
                     <div>
                         <h4 class="text-secondary-custom border-bottom pb-3 mb-4 font-weight-bold">Cost Estimation Summary</h4>
                         
@@ -76,7 +76,7 @@
                             <strong class="text-secondary-custom">INR <span id="std-res-transport">0.00</span></strong>
                         </div>
 
-                        <div class="card bg-light border-0 p-4 mb-4 rounded-3">
+                        <div class="glass-card p-4 mb-4">
                             <div class="d-flex justify-content-between align-items-center">
                                 <h4 class="text-secondary-custom font-weight-bold mb-0">Total Estimated Cost:</h4>
                                 <h3 class="text-primary-custom font-weight-bold mb-0">INR <span id="std-res-total">0.00</span></h3>

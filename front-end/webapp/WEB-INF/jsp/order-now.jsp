@@ -29,7 +29,7 @@
             <div class="row g-4">
                 <!-- Left Column: Customer details -->
                 <div class="col-lg-7" data-aos="fade-right">
-                    <div class="card border-0 shadow-sm p-4 h-100">
+                    <div class="glass-card p-4 h-100">
                         <h4 class="text-secondary-custom mb-4 border-bottom pb-2"><i class="fa-solid fa-user-circle me-2 text-primary-custom"></i><spring:message code="order.detailsHeader"/></h4>
                         
                         <div class="row g-3">
@@ -79,7 +79,7 @@
 
                 <!-- Right Column: Order Details -->
                 <div class="col-lg-5" data-aos="fade-left">
-                    <div class="card border-0 shadow-sm p-4 mb-4">
+                    <div class="glass-card p-4 mb-4">
                         <h4 class="text-secondary-custom mb-4 border-bottom pb-2"><i class="fa-solid fa-cart-flatbed me-2 text-primary-custom"></i><spring:message code="order.prodHeader"/></h4>
                         
                         <div class="mb-3">
@@ -108,23 +108,23 @@
                     </div>
 
                     <!-- Instant Pricing Preview -->
-                    <div class="card border-0 shadow-sm p-4 bg-secondary-custom text-white mb-4">
-                        <h5 class="text-accent-custom mb-3">Live Checkout Estimate</h5>
+                    <div class="glass-card p-4 mb-4">
+                        <h5 class="text-primary-custom mb-3 font-weight-bold">Live Checkout Estimate</h5>
                         <div class="d-flex justify-content-between mb-2">
-                            <span class="text-white-50"><spring:message code="calc.prodCost"/>:</span>
-                            <span>INR <span id="calc-res-product-cost">0.00</span></span>
+                            <span class="text-muted"><spring:message code="calc.prodCost"/>:</span>
+                            <strong>INR <span id="calc-res-product-cost">0.00</span></strong>
                         </div>
                         <div class="d-flex justify-content-between mb-2">
-                            <span class="text-white-50"><spring:message code="calc.gst" arguments="${not empty settings.GST_RATE ? settings.GST_RATE : 12}"/>:</span>
-                            <span>INR <span id="calc-res-gst">0.00</span></span>
+                            <span class="text-muted"><spring:message code="calc.gst" arguments="${not empty settings.GST_RATE ? settings.GST_RATE : 12}"/>:</span>
+                            <strong>INR <span id="calc-res-gst">0.00</span></strong>
                         </div>
-                        <div class="d-flex justify-content-between mb-3 pb-2 border-bottom border-dark">
-                            <span class="text-white-50"><spring:message code="calc.transport"/>:</span>
-                            <span>INR <span id="calc-res-transport">0.00</span></span>
+                        <div class="d-flex justify-content-between mb-3 pb-2 border-bottom">
+                            <span class="text-muted"><spring:message code="calc.transport"/>:</span>
+                            <strong>INR <span id="calc-res-transport">0.00</span></strong>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
-                            <span class="font-weight-bold">Grand Total:</span>
-                            <span class="h4 text-accent-custom mb-0 font-weight-bold">INR <span id="calc-res-total">0.00</span></span>
+                            <h5 class="font-weight-bold mb-0 text-secondary-custom">Grand Total:</h5>
+                            <h4 class="text-primary-custom mb-0 font-weight-bold">INR <span id="calc-res-total">0.00</span></h4>
                         </div>
                     </div>
 

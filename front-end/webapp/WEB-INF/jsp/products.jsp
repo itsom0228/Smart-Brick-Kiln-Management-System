@@ -15,18 +15,18 @@
 <!-- Filter & Search Controls -->
 <section class="mb-5">
     <div class="container">
-        <div class="card border-0 shadow-sm p-4" data-aos="fade-up">
+        <div class="glass-card p-4" data-aos="fade-up">
             <form action="${pageContext.request.contextPath}/products" method="get" class="row g-3">
                 <div class="col-lg-4 col-md-6">
-                    <label class="form-label small font-weight-bold text-muted">Search Products</label>
+                    <label class="form-label small font-weight-bold">Search Products</label>
                     <div class="input-group">
-                        <span class="input-group-text bg-light border-0"><i class="fa-solid fa-magnifying-glass"></i></span>
-                        <input type="text" name="search" value="${search}" class="form-control bg-light border-0" placeholder="e.g. Red, Fly Ash...">
+                        <span class="input-group-text border-0" style="background: transparent; color: var(--text-secondary);"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <input type="text" name="search" value="${search}" class="form-control" placeholder="e.g. Red, Fly Ash...">
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <label class="form-label small font-weight-bold text-muted">Category Filter</label>
-                    <select name="filter" class="form-select bg-light border-0">
+                    <label class="form-label small font-weight-bold">Category Filter</label>
+                    <select name="filter" class="form-select">
                         <option value="all" ${filter == 'all' ? 'selected' : ''}>All Categories</option>
                         <option value="red" ${filter == 'red' ? 'selected' : ''}>Red Bricks</option>
                         <option value="fly ash" ${filter == 'fly ash' ? 'selected' : ''}>Fly Ash Bricks</option>
@@ -36,8 +36,8 @@
                     </select>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <label class="form-label small font-weight-bold text-muted">Sort By</label>
-                    <select name="sort" class="form-select bg-light border-0">
+                    <label class="form-label small font-weight-bold">Sort By</label>
+                    <select name="sort" class="form-select">
                         <option value="name_asc" ${sort == 'name_asc' ? 'selected' : ''}>Product Name (A-Z)</option>
                         <option value="price_asc" ${sort == 'price_asc' ? 'selected' : ''}>Price: Low to High</option>
                         <option value="price_desc" ${sort == 'price_desc' ? 'selected' : ''}>Price: High to Low</option>
@@ -57,7 +57,7 @@
         <div class="row g-4">
             <c:forEach var="p" items="${products}" varStatus="status">
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${status.index * 100}">
-                    <div class="product-card">
+                    <div class="product-card d-flex flex-column h-100">
                         <div class="product-image-wrapper">
                             <!-- Image fallbacks using Unsplash URLs in case local images do not exist -->
                             <img src="${p.imageUrl}" alt="${p.name}" 
@@ -81,7 +81,7 @@
                             <p class="text-muted small flex-grow-1">${p.description}</p>
                             
                             <!-- Specifications -->
-                            <div class="bg-light p-3 rounded-3 mb-3">
+                            <div class="glass-card p-3 mb-3" style="border-radius: 12px !important; background: rgba(255, 255, 255, 0.3) !important;">
                                 <div class="product-meta">
                                     <span><i class="fa-solid fa-ruler-combined me-1"></i> Size:</span>
                                     <strong>${p.dimensions}</strong>
