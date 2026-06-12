@@ -13,6 +13,7 @@
     <meta property="og:title" content="Sarpane Vit Suppliers - Smart Brick Kiln">
     <meta property="og:description" content="Strong Foundations Begin With Quality Bricks. Standardized and automated brick processing.">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="${pageContext.request.contextPath}/images/visiting-card.jpg">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">

@@ -41,7 +41,7 @@
                         </div>
                         <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-delay="200">
                             <div class="p-2 glass-card d-inline-block shadow-lg" style="border-radius: 20px;">
-                                <img src="${pageContext.request.contextPath}/images/banner.jpg" alt="Sarpane Vit Suppliers Banner" class="hero-banner-img img-fluid" style="border-radius: 16px; max-height: 360px; object-fit: cover;">
+                                <img src="${pageContext.request.contextPath}/images/visiting-card.jpg" alt="Sarpane Vit Suppliers Banner" class="hero-banner-img img-fluid" style="border-radius: 16px; max-height: 360px; object-fit: cover;">
                             </div>
                         </div>
                     </div>
