@@ -9,5 +9,5 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 COPY --from=build /app/back-end/target/kiln-1.0.0.war app.war
-EXPOSE 8095
+EXPOSE 10000
 ENTRYPOINT ["java", "-jar", "app.war"]
