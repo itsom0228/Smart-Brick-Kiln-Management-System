@@ -46,7 +46,6 @@ public class DatabaseSeeder implements CommandLineRunner {
     }
 
     @Override
-    @Transactional
     public void run(String... args) throws Exception {
         // 1. Seed Admin User
         if (adminRepository.count() == 0) {
