@@ -232,4 +232,79 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => alert.remove(), 600);
         }, 4000);
     });
+
+    // ==========================================
+    // 8. Admin Sidebar Toggle Logic (Mobile)
+    // ==========================================
+    const adminWrapper = document.querySelector('.admin-wrapper');
+    if (adminWrapper) {
+        const sidebar = document.querySelector('.admin-sidebar');
+        
+        // 1. Create and inject overlay backdrop
+        const overlay = document.createElement('div');
+        overlay.className = 'sidebar-overlay';
+        document.body.appendChild(overlay);
+        
+        // 2. Create and inject mobile top navigation bar
+        const mobileHeader = document.createElement('div');
+        mobileHeader.className = 'admin-mobile-header justify-content-between align-items-center px-4 py-2';
+        
+        // Hamburger toggle button
+        const toggleBtn = document.createElement('button');
+        toggleBtn.className = 'btn btn-outline-custom p-2 border-0';
+        toggleBtn.innerHTML = '<i class="fa-solid fa-bars fa-lg"></i>';
+        toggleBtn.setAttribute('aria-label', 'Toggle Menu');
+        
+        // Mobile Brand title
+        const brand = document.createElement('div');
+        brand.className = 'admin-mobile-brand';
+        brand.innerHTML = '<i class="fa-solid fa-fire-burner me-2 text-primary-custom"></i>KILN CONSOLE';
+        
+        // Right side placeholder to keep it balanced
+        const rightPlaceholder = document.createElement('div');
+        rightPlaceholder.style.width = '35px'; // Matches toggle button width roughly
+        
+        mobileHeader.appendChild(toggleBtn);
+        mobileHeader.appendChild(brand);
+        mobileHeader.appendChild(rightPlaceholder);
+        
+        // Insert mobile header at the top of admin wrapper
+        adminWrapper.insertBefore(mobileHeader, adminWrapper.firstChild);
+        
+        // Helper function to toggle classes
+        const toggleSidebar = () => {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            
+            // Toggle hamburger icon to X and back
+            const icon = toggleBtn.querySelector('i');
+            if (sidebar.classList.contains('active')) {
+                icon.className = 'fa-solid fa-xmark fa-lg';
+            } else {
+                icon.className = 'fa-solid fa-bars fa-lg';
+            }
+        };
+        
+        // Click handlers
+        toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleSidebar();
+        });
+        
+        overlay.addEventListener('click', () => {
+            if (sidebar.classList.contains('active')) {
+                toggleSidebar();
+            }
+        });
+        
+        // Add click listeners to sidebar links to close sidebar on link click (useful on mobile)
+        const sidebarLinks = sidebar.querySelectorAll('.list-group-item');
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 991 && sidebar.classList.contains('active')) {
+                    toggleSidebar();
+                }
+            });
+        });
+    }
 });
