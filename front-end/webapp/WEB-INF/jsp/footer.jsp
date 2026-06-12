@@ -1,46 +1,46 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
-<footer class="bg-secondary-custom text-white pt-5 pb-4 mt-5">
+<footer class="pt-5 pb-4 mt-5">
     <div class="container">
         <div class="row">
             <!-- Col 1: About Brand -->
             <div class="col-md-4 mb-4">
-                <h5 class="text-accent-custom mb-3 font-weight-bold"><spring:message code="nav.brand"/></h5>
-                <p class="text-white-50"><spring:message code="hero.tagline"/></p>
-                <p class="text-white-50">Providing high compressive strength building materials with computerized quality assurance direct from our automated kiln systems.</p>
+                <h5 class="mb-3 font-weight-bold"><spring:message code="nav.brand"/></h5>
+                <p><spring:message code="hero.tagline"/></p>
+                <p>Providing high compressive strength building materials with computerized quality assurance direct from our automated kiln systems.</p>
             </div>
             <!-- Col 2: Quick Links -->
             <div class="col-md-4 mb-4">
-                <h5 class="text-accent-custom mb-3 font-weight-bold">Quick Links</h5>
+                <h5 class="mb-3 font-weight-bold">Quick Links</h5>
                 <ul class="list-unstyled">
-                    <li><a href="${pageContext.request.contextPath}/" class="text-white-50 text-decoration-none hover-accent mb-2 d-inline-block"><i class="fa-solid fa-angle-right me-1"></i> <spring:message code="nav.home"/></a></li>
-                    <li><a href="${pageContext.request.contextPath}/about" class="text-white-50 text-decoration-none hover-accent mb-2 d-inline-block"><i class="fa-solid fa-angle-right me-1"></i> <spring:message code="nav.about"/></a></li>
-                    <li><a href="${pageContext.request.contextPath}/products" class="text-white-50 text-decoration-none hover-accent mb-2 d-inline-block"><i class="fa-solid fa-angle-right me-1"></i> <spring:message code="nav.products"/></a></li>
-                    <li><a href="${pageContext.request.contextPath}/gallery" class="text-white-50 text-decoration-none hover-accent mb-2 d-inline-block"><i class="fa-solid fa-angle-right me-1"></i> <spring:message code="nav.gallery"/></a></li>
-                    <li><a href="${pageContext.request.contextPath}/calculator" class="text-white-50 text-decoration-none hover-accent mb-2 d-inline-block"><i class="fa-solid fa-angle-right me-1"></i> <spring:message code="nav.calculator"/></a></li>
-                    <li><a href="${pageContext.request.contextPath}/admin/login" class="text-white-50 text-decoration-none hover-accent mb-2 d-inline-block"><i class="fa-solid fa-lock me-1"></i> <spring:message code="nav.admin"/></a></li>
+                    <li><a href="${pageContext.request.contextPath}/" class="text-decoration-none hover-accent mb-2 d-inline-block"><i class="fa-solid fa-angle-right me-1"></i> <spring:message code="nav.home"/></a></li>
+                    <li><a href="${pageContext.request.contextPath}/about" class="text-decoration-none hover-accent mb-2 d-inline-block"><i class="fa-solid fa-angle-right me-1"></i> <spring:message code="nav.about"/></a></li>
+                    <li><a href="${pageContext.request.contextPath}/products" class="text-decoration-none hover-accent mb-2 d-inline-block"><i class="fa-solid fa-angle-right me-1"></i> <spring:message code="nav.products"/></a></li>
+                    <li><a href="${pageContext.request.contextPath}/gallery" class="text-decoration-none hover-accent mb-2 d-inline-block"><i class="fa-solid fa-angle-right me-1"></i> <spring:message code="nav.gallery"/></a></li>
+                    <li><a href="${pageContext.request.contextPath}/calculator" class="text-decoration-none hover-accent mb-2 d-inline-block"><i class="fa-solid fa-angle-right me-1"></i> <spring:message code="nav.calculator"/></a></li>
+                    <li><a href="${pageContext.request.contextPath}/admin/login" class="text-decoration-none hover-accent mb-2 d-inline-block"><i class="fa-solid fa-lock me-1"></i> <spring:message code="nav.admin"/></a></li>
                 </ul>
             </div>
             <!-- Col 3: Contacts -->
             <div class="col-md-4 mb-4">
-                <h5 class="text-accent-custom mb-3 font-weight-bold"><spring:message code="nav.contact"/></h5>
-                <p class="text-white-50"><i class="fa-solid fa-user me-2 text-primary-custom"></i> Owner: Dipak Sarpane</p>
-                <p class="text-white-50"><i class="fa-solid fa-phone me-2 text-primary-custom"></i> +91 95884 30156</p>
-                <p class="text-white-50"><i class="fa-solid fa-envelope me-2 text-primary-custom"></i> dipaksarpane@gmail.com</p>
-                <p class="text-white-50"><i class="fa-solid fa-location-dot me-2 text-primary-custom"></i> Maharashtra, Osmanabad (Dharashiv), Tq: Paranda, Village: Hingangaon Bk, PIN: 413502</p>
+                <h5 class="mb-3 font-weight-bold"><spring:message code="nav.contact"/></h5>
+                <p><i class="fa-solid fa-user me-2 text-primary-custom"></i> Owner: Dipak Sarpane</p>
+                <p><i class="fa-solid fa-phone me-2 text-primary-custom"></i> +91 95884 30156</p>
+                <p><i class="fa-solid fa-envelope me-2 text-primary-custom"></i> dipaksarpane@gmail.com</p>
+                <p><i class="fa-solid fa-location-dot me-2 text-primary-custom"></i> Maharashtra, Osmanabad (Dharashiv), Tq: Paranda, Village: Hingangaon Bk, PIN: 413502</p>
             </div>
         </div>
         
-        <hr class="bg-white-50 my-4">
+        <hr class="my-4" style="background-color: var(--glass-border); height: 1px; border: none; opacity: 0.5;">
         
         <div class="row align-items-center">
-            <div class="col-md-7 text-white-50">
+            <div class="col-md-7">
                 <p class="mb-0">&copy; 2026 Dipak Sarpane Brick Industries. All Rights Reserved. Powered by Smart Brick Kiln Management System.</p>
             </div>
-            <div class="col-md-5 text-md-end text-white-50">
-                <a href="https://wa.me/919588430156?text=Hello,%20I%20want%20information%20about%20your%20bricks." target="_blank" class="text-white-50 me-3 text-decoration-none"><i class="fa-brands fa-whatsapp fa-lg hover-accent"></i></a>
-                <a href="https://www.instagram.com/dipaksarpane?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-white-50 text-decoration-none"><i class="fa-brands fa-instagram fa-lg hover-accent"></i></a>
+            <div class="col-md-5 text-md-end">
+                <a href="https://wa.me/919588430156?text=Hello,%20I%20want%20information%20about%20your%20bricks." target="_blank" class="me-3 text-decoration-none"><i class="fa-brands fa-whatsapp fa-lg hover-accent"></i></a>
+                <a href="https://www.instagram.com/dipaksarpane?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-decoration-none"><i class="fa-brands fa-instagram fa-lg hover-accent"></i></a>
             </div>
         </div>
     </div>

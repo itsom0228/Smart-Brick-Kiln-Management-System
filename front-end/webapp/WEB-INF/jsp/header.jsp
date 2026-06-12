@@ -71,7 +71,7 @@
                     <a class="nav-link dropdown-toggle text-accent-custom" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-solid fa-globe me-1"></i> <spring:message code="nav.language"/>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-dark">
+                    <ul class="dropdown-menu">
                         <li><a class="dropdown-menu-item dropdown-item" href="?lang=en">English</a></li>
                         <li><a class="dropdown-menu-item dropdown-item" href="?lang=mr">मराठी (Marathi)</a></li>
                         <li><a class="dropdown-menu-item dropdown-item" href="?lang=hi">हिन्दी (Hindi)</a></li>
@@ -83,7 +83,7 @@
                     </button>
                 </li>
                 <li class="nav-item ms-lg-3">
-                    <a class="btn btn-outline-custom btn-sm py-2 px-3 text-white border-white" href="${pageContext.request.contextPath}/order/track">
+                    <a class="btn btn-outline-custom btn-sm py-2 px-3" href="${pageContext.request.contextPath}/order/track">
                         <i class="fa-solid fa-magnifying-glass me-1"></i> <spring:message code="nav.trackOrder"/>
                     </a>
                 </li>

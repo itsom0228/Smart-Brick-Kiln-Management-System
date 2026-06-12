@@ -10,18 +10,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/custom.css">
 </head>
-<body class="bg-secondary-custom d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+<body class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+
+<!-- Background dynamic injector fallback script if custom.js runs late -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+    });
+</script>
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-5">
             <!-- Login Card -->
-            <div class="card border-0 shadow-lg p-5 rounded-4 bg-white text-dark">
+            <div class="glass-card border-0 p-4 p-md-5">
                 <div class="text-center mb-4">
                     <div class="bg-primary-custom text-white rounded-circle p-3 d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
-                        <i class="fa-solid fa-lock-open fa-2x"></i>
+                        <i class="fa-solid fa-lock-open fa-2xl"></i>
                     </div>
-                    <h3 class="font-weight-bold text-secondary-custom">KILN CONSOLE</h3>
+                    <h3 class="font-weight-bold">KILN CONSOLE</h3>
                     <p class="text-muted small">Dipak Sarpane Brick Industries Admin Panel</p>
                 </div>
 
@@ -44,22 +52,22 @@
                     <div class="mb-3">
                         <label class="form-label font-weight-bold small text-muted">Admin Username</label>
                         <div class="input-group">
-                            <span class="input-group-text bg-light border-0"><i class="fa-solid fa-user"></i></span>
-                            <input type="text" name="username" required class="form-control bg-light border-0" placeholder="Username" autofocus>
+                            <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                            <input type="text" name="username" required class="form-control" placeholder="Username" autofocus>
                         </div>
                     </div>
                     <div class="mb-4">
                         <label class="form-label font-weight-bold small text-muted">Password</label>
                         <div class="input-group">
-                            <span class="input-group-text bg-light border-0"><i class="fa-solid fa-key"></i></span>
-                            <input type="password" name="password" required class="form-control bg-light border-0" placeholder="••••••••">
+                            <span class="input-group-text"><i class="fa-solid fa-key"></i></span>
+                            <input type="password" name="password" required class="form-control" placeholder="••••••••">
                         </div>
                     </div>
                     
                     <button type="submit" class="btn btn-primary-custom w-100 py-3 text-uppercase font-weight-bold">Authenticate</button>
                 </form>
 
-                <div class="text-center mt-4 border-top pt-3">
+                <div class="text-center mt-4 border-top pt-3" style="border-color: var(--glass-border) !important;">
                     <a href="${pageContext.request.contextPath}/" class="text-decoration-none small text-muted"><i class="fa-solid fa-arrow-left me-1"></i> Return to Public Site</a>
                 </div>
             </div>
