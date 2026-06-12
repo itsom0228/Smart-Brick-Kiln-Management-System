@@ -9,8 +9,8 @@
     <title><spring:message code="nav.brand"/></title>
     
     <!-- SEO and OpenGraph Metadata -->
-    <meta name="description" content="Premium brick manufacturing. Dipak Sarpane Brick Industries provides high quality Red Bricks, Fly Ash Bricks, Hollow Bricks, and Concrete Blocks.">
-    <meta property="og:title" content="Dipak Sarpane Brick Industries - Smart Brick Kiln">
+    <meta name="description" content="Premium brick manufacturing. Sarpane Vit Suppliers provides high quality Red Bricks, Fly Ash Bricks, Hollow Bricks, and Concrete Blocks.">
+    <meta property="og:title" content="Sarpane Vit Suppliers - Smart Brick Kiln">
     <meta property="og:description" content="Strong Foundations Begin With Quality Bricks. Standardized and automated brick processing.">
     <meta property="og:type" content="website">
     

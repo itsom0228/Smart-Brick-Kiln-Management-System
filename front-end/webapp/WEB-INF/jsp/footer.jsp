@@ -36,7 +36,7 @@
         
         <div class="row align-items-center">
             <div class="col-md-7">
-                <p class="mb-0">&copy; 2026 Dipak Sarpane Brick Industries. All Rights Reserved. Powered by Smart Brick Kiln Management System.</p>
+                <p class="mb-0">&copy; 2026 Sarpane Vit Suppliers. All Rights Reserved. Powered by Smart Brick Kiln Management System.</p>
             </div>
             <div class="col-md-5 text-md-end">
                 <a href="https://wa.me/919588430156?text=Hello,%20I%20want%20information%20about%20your%20bricks." target="_blank" class="me-3 text-decoration-none"><i class="fa-brands fa-whatsapp fa-lg hover-accent"></i></a>
