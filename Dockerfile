@@ -10,4 +10,4 @@ FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 COPY --from=build /app/back-end/target/kiln-1.0.0.war app.war
 EXPOSE 10000
-ENTRYPOINT ["java", "-Djava.net.preferIPv4Stack=true", "-jar", "app.war"]
+ENTRYPOINT ["java", "-XX:ActiveProcessorCount=1", "-Xmx300m", "-XX:+UseSerialGC", "-Djava.security.egd=file:/dev/./urandom", "-Djava.net.preferIPv4Stack=true", "-jar", "app.war"]
